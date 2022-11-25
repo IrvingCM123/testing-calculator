@@ -1,36 +1,112 @@
-<div class="calculator">
+<div class="calculator"></div>
 
-    <form>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-            <input id="operator1" [(ngModel)]="operator1" type="number" class="form-control operator1" name="operator1" placeholder="0.0">
+<main>
+  <section>
+    <h1>Calculadora</h1>
+  </section>
+
+  <div class="container">
+      <div class="col">
+        <div class="card" style="width: 18rem; margin: 1rem 0rem">
+          <div class="card-body">
+            <form>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                <input id="operator1" [(ngModel)]="operator1" type="number" class="form-control operator1"
+                  name="operator1" placeholder="0.0" />
+              </div>
+
+              <div class="input-group" style="margin-top: 3rem">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                <input id="operator2" [(ngModel)]="operator2" type="number" class="form-control operator2"
+                  name="operator2" placeholder="0.0" />
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
 
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-            <input id="operator2" [(ngModel)]="operator2" type="number" class="form-control operator2" name="operator2" placeholder="0.0">
+
+      <div class="col">
+        <div class="card; row" style="width: 20rem; margin: 1rem 0rem">
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <button type="button" class="btn btn-primary" style="width: 20rem; height: 6rem; padding: 0; margin: 1rem 0rem;">
+                <li class="list-group-item" (click)="addition()" style="height: 6rem; margin: 0rem 1rem; background: none; border-style: none;">
+                  <i class="glyphicon glyphicon-plus addition-button"></i>
+                  <p style="margin: 0; font-size: 20px; font-weight: 500">
+                    Suma
+                  </p>
+                </li>
+              </button>
+
+              <button type="button" class="btn btn-secondary" style="width: 20rem; height: 6rem; padding: 0; margin: 1rem 0rem;">
+                <li class="list-group-item" (click)="substraction()" style="height: 6rem; margin: 0rem 1rem; background: none; border-style: none;">
+                  <i class="glyphicon glyphicon-minus substraction-button"></i>
+                  <p style="margin: 0; font-size: 20px; font-weight: 500">
+                    Resta
+                  </p>
+                </li>
+              </button>
+
+              <button type="button" class="btn btn-success" style="width: 20rem; height: 6rem; padding: 0; margin: 1rem 0rem;">
+                <li class="list-group-item" (click)="division()" style="height: 6rem; margin: 0rem 1rem; background: none; border-style: none;">
+                  <i class="glyphicon glyphicon-plus-sign divition-button" ></i>
+                  <p style="margin: 0; font-size: 20px; font-weight: 500">
+                    Division
+                  </p>
+                </li>
+              </button>
+
+              <button type="button" class="btn btn-danger" style="width: 20rem; height: 6rem; padding: 0; margin: 1rem 0rem;">
+                <li class="list-group-item" (click)="multiplication()" style="height: 6rem; margin: 0rem 1rem; background: none; border-style: none;">
+                  <i class="glyphicon glyphicon-remove multiplication-button" ></i>
+                  <p style="margin: 0; font-size: 20px; font-weight: 500" >
+                    Multiplicacion
+                  </p>
+                </li>
+              </button>
+
+              <button type="button" class="btn btn-warning" style="width: 20rem; height: 6rem; padding: 0; margin: 1rem 0rem;">
+                <li class="list-group-item" (click)="exp()" style="height: 6rem; margin: 0rem 1rem; background: none; border-style: none;">
+                  <i class="glyphicon glyphicon-asterisk exp-button"></i>
+                  <p style="margin: 0; font-size: 20px; font-weight: 500">
+                    Exponente
+                  </p>
+                </li>
+              </button>
+
+              <button type="button" class="btn btn-light" style="width: 20rem; height: 6rem; padding: 0; margin: 1rem 0rem;">
+                <li class="list-group-item" (click)="sqr()" style="height: 6rem; margin: 0rem 1rem; background: none; border-style: none;">
+                  <i class="glyphicon glyphicon-arrow-up sqr-button" ></i>
+                  <p style="margin: 0; font-size: 20px; font-weight: 500">
+                    Cuadrado
+                  </p>
+                </li>
+              </button>
+
+              <button type="button" class="btn btn-info" style="width: 20rem; height: 6rem; padding: 0; margin: 1rem 0rem;">
+                <li class="list-group-item" (click)="sqrt()" style="height: 6rem; margin: 0rem 1rem; background: none; border-style: none;">
+                  <i class="glyphicon glyphicon-arrow-down sqr-button" ></i>
+                  <p style="margin: 0; font-size: 20px; font-weight: 500">
+                    Raíz
+                  </p>
+                </li>
+              </button>
+            </ul>
+          </div>
         </div>
-    </form>
+      </div>
+      <div class="col">
+        <section>
+          <div class="card text-center" style="width: 20rem; margin: 1rem 0rem">
+            <div class="card-header">Resultado</div>
+            <div class="card-body">
+              <span class="result">{{ text }}</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
 
-    <i class="glyphicon glyphicon-plus addition-button"
-        (click)="addition()"></i>
-
-    <i class="glyphicon glyphicon-minus substraction-button"
-        (click)="substraction()"></i>
-
-    <i class="glyphicon glyphicon-remove multiplication-button"
-        (click)="multiplication()"></i>
-
-    <i class="glyphicon glyphicon-plus-sign divition-button"
-        (click)="division()"></i>
-
-    <i class="glyphicon glyphicon-asterisk exp-button"
-        (click)="exp()"></i>
-
-    <i class="glyphicon glyphicon-arrow-up sqr-button"
-        (click)="sqr()"></i>
-
-
-</div>
-
-<span class="result">{{ result }}</span>
+</main>
