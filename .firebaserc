@@ -1,1 +1,5 @@
-{}
+{
+  "projects": {
+    "default": "centenito-9f4b7"
+  }
+}
